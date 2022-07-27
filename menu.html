@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="menu_style.css" />
+    <title>Dies Irae</title>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="start--game hidden">
+        <div class="logo">
+          <img src="img/logo.png" alt="" />
+        </div>
+        <button class="btn--start--game">Start Game</button>
+      </div>
+    </div>
+
+    <div class="menu hidden">
+      <button class="btn--menu btn--multiplayer" href="index.html">
+        Multiplayer
+      </button>
+      <!-- <button class="btn--menu btn--single player">Single player</button> -->
+      <input
+        type="button"
+        class="btn--menu btn--single player"
+        value="Single Player"
+        onclick="index.html"
+      />
+      <button class="btn--menu btn--close-menu">Exit</button>
+    </div>
+    <div class="overlay hidden"></div>
+    <script src="menu_script.js"></script>
+  </body>
+</html>

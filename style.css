@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0%;
+}
+/*SLIDER*/
+.characters {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: black;
+  /* background-image: url("img/MenuBg.png"); */
+  position: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  align-items: center;
+}
+.btn--fight {
+  position: relative;
+  display: flex;
+  margin: auto;
+  background-color: rgb(0, 0, 0);
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(138, 138, 138);
+  padding: 1rem 2.5rem;
+  border-radius: 20em;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(218, 23, 16);
+  opacity: 100%;
+}
+
+.disabled {
+  border-color: rgb(122, 122, 122);
+  opacity: 50%;
+}
+
+.player--choise {
+  border: solid;
+  border-color: red;
+  max-width: 100vh;
+  flex: 50%;
+}
+.player--slider {
+  max-width: 100rem;
+  height: 50rem;
+  background-color: rgb(148, 148, 148);
+  margin: 0 auto;
+  border: solid;
+  border-color: yellow;
+  overflow: hidden;
+  position: relative;
+}
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: transform 1s;
+}
+.slide > img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+}
+.main--game {
+  display: flex;
+  position: relative;
+  align-items: center;
+  background-color: rgb(137, 196, 176);
+  width: 95%;
+}
+.player {
+  display: flex;
+  flex: 50%;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(112, 218, 218);
+  border-style: solid;
+  border-width: 1px;
+  border-color: brown;
+  width: 90%;
+  height: 80%;
+  padding: 1%;
+}
+.btn {
+}
+.player--hero {
+  width: 50vh;
+  display: flex;
+}
+.player--active {
+  background-color: aliceblue;
+}
+
+.damage--message {
+  position: absolute;
+  top: 25%;
+  color: rgb(255, 0, 0);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(145, 145, 145, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
+}
+
+.end--game--window {
+  position: fixed;
+  display: table;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 40rem;
+  background-color: #ffffff;
+  padding-top: 5rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-bottom: 10rem;
+  box-shadow: 0 4rem 6rem rgba(122, 122, 122, 0.3);
+  z-index: 1000;
+  transition: all 0.5s;
+  opacity: 80%;
+}
+
+.btn--end--game {
+  display: table-cell;
+  margin: auto;
+  margin-top: 5%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  width: 200px;
+  vertical-align: middle;
+}
