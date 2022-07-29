@@ -1,18 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
+  font-family: "Cormorant SC", serif;
+}
+.a {
+  text-align: center;
 }
 .hidden {
   visibility: hidden;
   opacity: 0;
 }
+
 .logo {
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
+  padding: 2% 2% 2% 2%;
+  display: block;
   opacity: 70%;
 }
-.hero {
+
+.btn {
+  cursor: pointer;
+  text-decoration: none;
+  background-color: rgb(0, 0, 0);
+  color: rgb(199, 199, 199);
+  border-radius: 20em;
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(218, 23, 16);
+}
+
+.game__menu {
   min-height: 100vh;
   width: 100%;
   background-color: rgb(0, 0, 0);
@@ -20,70 +38,73 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 90%;
-  color: azure;
+}
+.nav__menu {
+  color: rgb(255, 255, 255);
   align-items: center;
-  font-family: system-ui;
 }
-.start--game {
+.start__game {
   display: flex;
+  align-items: center;
 }
-.btn--start--game {
-  display: flex;
+.btn__start--game {
   margin: auto;
-  background-color: rgb(0, 0, 0);
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 500;
-  color: rgb(138, 138, 138);
   padding: 1rem 2.5rem;
-  border-radius: 20em;
-  cursor: pointer;
-  transition: all 0.3s;
-  border: solid;
-  border-width: 1px;
-  border-color: rgb(218, 23, 16);
-  opacity: 50%;
+  opacity: 80%;
 }
+
+.btn__start--game:hover {
+  background-color: rgb(218, 23, 16);
+}
+
 .message {
-  display: flex;
-  margin: auto;
-  text-align: center;
+  display: block;
+  width: 100%;
   position: absolute;
   bottom: 5%;
-  left: 50%;
+  color: #ffffff;
 }
-.menu {
+
+.message__text {
+  text-align: center;
+}
+
+.modal__menu {
   position: fixed;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 40rem;
   background-color: #ffffff;
-  padding-top: 5rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
-  padding-bottom: 10rem;
-  box-shadow: 0 4rem 6rem rgba(122, 122, 122, 0.3);
+  padding: 5rem 4rem 10rem 4rem;
   z-index: 1000;
-  transition: all 0.5s;
   opacity: 50%;
 }
-.btn--menu {
+
+.btn__menu {
   display: flex;
-  margin: auto;
-  background-color: rgb(0, 0, 0);
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 400;
   color: rgb(235, 235, 235);
   padding: 2rem 3rem;
-  border-radius: 20em;
-  cursor: pointer;
-  transition: all 0.3s;
-  border: solid;
-  border-width: 1px;
-  border-color: rgb(218, 23, 16);
+  border-width: 2px;
   opacity: 100%;
   margin-bottom: 0.5rem;
 }
+
+.btn__menu:hover {
+  background-color: rgb(218, 23, 16);
+}
+
+.btn__singleplayer {
+  opacity: 30%;
+}
+.btn__singleplayer:hover {
+  background-color: rgb(0, 0, 0);
+}
+
 .overlay {
   position: fixed;
   top: 0;

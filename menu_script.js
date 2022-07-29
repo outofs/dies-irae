@@ -1,25 +1,25 @@
-const startGameNav = document.querySelector(".start--game");
-const btnShowMenu = document.querySelector(".btn--start--game");
-const btnCloseMenu = document.querySelector(".btn--close-menu");
-const gameMenu = document.querySelector(".menu");
+const startGameNav = document.querySelector(".start__game");
+const btnShowMenu = document.querySelector(".btn__start--game");
+const btnCloseMenu = document.querySelector(".btn__close--menu");
+const modalMenu = document.querySelector(".modal__menu");
 const overlay = document.querySelector(".overlay");
 
-const hero = document.querySelector(".hero");
+const gameMenu = document.querySelector(".game__menu");
 const message = document.createElement("div");
-message.innerHTML = "Press ENTER to continue";
-hero.append(message);
+message.innerHTML = "<p class ='message__text'>Press ENTER to continue</p>";
+gameMenu.append(message);
 message.classList.add("message");
 // const closeMessage = function () {
 //   message.classList.add("message");
 // };
 
 const showMenu = function () {
-  gameMenu.classList.remove("hidden");
+  modalMenu.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
 
 const closeMenu = function () {
-  gameMenu.classList.add("hidden");
+  modalMenu.classList.add("hidden");
   overlay.classList.add("hidden");
 };
 

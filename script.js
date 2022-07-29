@@ -6,8 +6,8 @@ let activePlayer = 0;
 let passivePlayer = 1;
 let currentRound = 1;
 let globalScore = [0, 0];
-const player0El = document.querySelector(".player--0");
-const player1El = document.querySelector(".player--1");
+const player0El = document.querySelector(".player__0");
+const player1El = document.querySelector(".player__1");
 /// Heroes and stats
 ///////////////////////////////Betryaed King/////////////////////////////
 
@@ -15,7 +15,7 @@ const heroes = {
   0: {
     id: 1,
     name: "Betryaed King",
-    icon: "img/1.png",
+    icon: "https://github.com/outofs/dies-irae/blob/master/img/1.png?raw=true",
     startedHp: 1000,
     hp: 1000,
     startedAttack: 100,
@@ -101,7 +101,7 @@ const heroes = {
   1: {
     id: 2,
     name: "Siren",
-    icon: "img/2.png",
+    icon: "https://github.com/outofs/dies-irae/blob/master/img/2.png?raw=true",
     startedHp: 800,
     hp: 800,
     startedAttack: 90,
@@ -208,7 +208,7 @@ const heroes = {
   2: {
     id: 3,
     name: "Swamp Demon",
-    icon: "img/3.png",
+    icon: "https://github.com/outofs/dies-irae/blob/master/img/3.png?raw=true",
     startedHp: 1100,
     hp: 1100,
     startedAttack: 90,
@@ -216,7 +216,7 @@ const heroes = {
     startedDefence: 0.1,
     defence: 0.1,
     startedAgility: 20,
-    agility: 40,
+    agility: 30,
     healing: 120,
     healingTurns: 3,
     damageMovements: [],
@@ -312,18 +312,18 @@ let player1Hero = 0;
 let player0Ready = false;
 let player1Ready = false;
 const characters = document.querySelector(".characters");
-const mainGame = document.querySelector(".main--game");
-const btnFight = document.querySelector(".btn--fight");
+const mainGame = document.querySelector(".main__game");
+const btnFight = document.querySelector(".btn__fight");
 btnFight.disabled = true;
 btnFight.classList.add("disabled");
 
 /// Slider
 const slider = function (player) {
-  const slides = document.querySelectorAll(`.slide--player--${player}`);
-  const btnLeft = document.querySelector(`.slider--${player}__btn--left`);
-  const btnRight = document.querySelector(`.slider--${player}__btn--right`);
-  const btnReady = document.querySelector(`.player--${player}--ready`);
-  const btnCancel = document.querySelector(`.player--${player}--cancel`);
+  const slides = document.querySelectorAll(`.slide__player--${player}`);
+  const btnLeft = document.querySelector(`.slider__${player}--left`);
+  const btnRight = document.querySelector(`.slider__${player}--right`);
+  const btnReady = document.querySelector(`.player__${player}--ready`);
+  const btnCancel = document.querySelector(`.player__${player}--cancel`);
 
   let currentSlide = 0;
   const maxSlide = slides.length;
@@ -426,10 +426,10 @@ const randomDamage = function (max) {
 
 const buttonsDesable = function (active, passive) {
   document
-    .querySelectorAll(`.btn--player--${passive}`)
+    .querySelectorAll(`.btn__player--${passive}`)
     .forEach((btn) => (btn.disabled = true));
   document
-    .querySelectorAll(`.btn--player--${active}`)
+    .querySelectorAll(`.btn__player--${active}`)
     .forEach((btn) => (btn.disabled = false));
 };
 
@@ -460,25 +460,35 @@ const switchPlayer = function () {
     }
     if (players[activePlayer].hero.healingTurns <= 0) {
       document.querySelector(
-        `.btn--player--${activePlayer}--healing`
+        `.btn__player--${activePlayer}--healing`
       ).disabled = true;
     }
     document.getElementById(
-      `current--${activePlayer}`
+      `current__${activePlayer}`
     ).textContent = `${players[activePlayer].hero.hp} / ${players[activePlayer].hero.startedHp}`;
-    document.getElementById(
-      `current--${passivePlayer}`
-    ).textContent = `${players[passivePlayer].hero.hp} / ${players[passivePlayer].hero.startedHp}`;
+    document.getElementById(`hp__${activePlayer}`).style.width = `${Math.round(
+      (players[activePlayer].hero.hp / players[activePlayer].hero.startedHp) *
+        100
+    )}%`;
 
-    player1El.classList.toggle("player--active");
-    player0El.classList.toggle("player--active");
+    document.getElementById(
+      `current__${passivePlayer}`
+    ).textContent = `${players[passivePlayer].hero.hp} / ${players[passivePlayer].hero.startedHp}`;
+    document.getElementById(`hp__${passivePlayer}`).style.width = `${Math.round(
+      (players[passivePlayer].hero.hp / players[passivePlayer].hero.startedHp) *
+        100
+    )}%`;
+
+    player1El.classList.toggle("player__active");
+    player0El.classList.toggle("player__active");
   }
 };
 
 const endRoundFunction = function () {
   if (players[passivePlayer].hero.hp <= 0) {
     playing = false;
-    document.getElementById(`current--${passivePlayer}`).textContent = 0;
+    document.getElementById(`current__${passivePlayer}`).textContent = 0;
+    document.getElementById(`hp__${passivePlayer}`).style.width = "0%";
     console.log("End of Game");
     globalScore[activePlayer]++;
     currentRound++;
@@ -507,8 +517,13 @@ const attackAction = function (funcDamage) {
 
     players[passivePlayer].hero.hp =
       players[passivePlayer].hero.hp - funcDamage;
-    document.getElementById(`current--${passivePlayer}`).textContent =
+    document.getElementById(`current__${passivePlayer}`).textContent =
       players[passivePlayer].hero.hp;
+
+    document.getElementById(`hp__${passivePlayer}`).style.width = `${Math.round(
+      (players[passivePlayer].hero.hp / players[passivePlayer].hero.startedHp) *
+        100
+    )}%`;
     // damageMessage(funcDamage, "Damage");
     console.log(funcDamage);
   }
@@ -527,24 +542,30 @@ const healingFunction = function () {
   if (players[activePlayer].hero.healingTurns) {
     players[activePlayer].hero.hp += players[activePlayer].hero.healing;
     document.getElementById(
-      `current--${activePlayer}`
+      `current__${activePlayer}`
     ).textContent = `${players[activePlayer].hero.hp} / ${players[activePlayer].hero.startedHp}`;
+
+    document.getElementById(`hp__${activePlayer}`).style.width = `${Math.round(
+      (players[activePlayer].hero.hp / players[activePlayer].hero.startedHp) *
+        100
+    )}%`;
+
     players[activePlayer].hero.healingTurns--;
     if (players[activePlayer].hero.healingTurns < 1) {
       document.querySelector(
-        `.btn--player--${activePlayer}--healing`
+        `.btn__player__${activePlayer}__healing`
       ).disabled = true;
     }
   }
 };
 
 // const damageMessage = function (value, type) {
-//   const dmgMssg = document.querySelector(`damage--message--${passivePlayer}`);
+//   const dmgMssg = document.querySelector(`damage__message__${passivePlayer}`);
 //   document.querySelector(
-//     `damage--message--type--${passivePlayer}`
+//     `damage__message__type__${passivePlayer}`
 //   ).textContent = type;
 //   document.querySelector(
-//     `damage--message--value--${passivePlayer}`
+//     `damage__message__value__${passivePlayer}`
 //   ).textContent = value;
 //   dmgMssg.classList.remove("hidden");
 // };
@@ -556,37 +577,41 @@ const healingFunction = function () {
 const gamePlay = function () {
   /// Creating html page of game
 
-  const htmlPlayer0Img = `<img src="${players[0]["hero"].icon}" alt="" class="player--hero player--1--hero" />
-  <h3 class="hero--name hero--name--0">${players[0]["hero"].name}</h3>`;
-  const htmlPlayer1Img = ` <img src="${players[1]["hero"].icon}" alt="" class="player--hero player--2--hero" />
-  <h3 class="hero--name hero--name--1">${players[1]["hero"].name}</h3>`;
+  const htmlPlayer0Img = `<img src="${players[0]["hero"].icon}" alt="" class="player__hero player__1--hero" />
+  <h3 class="hero__name hero__name__0">${players[0]["hero"].name}</h3>`;
+  const htmlPlayer1Img = ` <img src="${players[1]["hero"].icon}" alt="" class="player__hero player__2--hero" />
+  <h3 class="hero__name hero__name__1">${players[1]["hero"].name}</h3>`;
   document
-    .querySelector(".name--img--0")
+    .querySelector(".name__img--0")
     .insertAdjacentHTML("beforeend", htmlPlayer0Img);
   document
-    .querySelector(".name--img--1")
+    .querySelector(".name__img--1")
     .insertAdjacentHTML("beforeend", htmlPlayer1Img);
 
   /// Elements
 
   // Buttons
-  const btnPlayer0Atk = document.querySelector(".btn--player--0--attack");
-  const btnPlayer0Skill1 = document.querySelector(".btn--player--0--skill--1");
-  const btnPlayer0Skill2 = document.querySelector(".btn--player--0--skill--2");
-  const btnPlayer0Skill3 = document.querySelector(".btn--player--0--skill--3");
-  const btnPlayer0Heal = document.querySelector(".btn--player--0--healing");
+  const btnPlayer0Atk = document.querySelector(".btn__player--0--attack");
+  const btnPlayer0Skill1 = document.querySelector(".btn__player--0--skill1");
+  const btnPlayer0Skill2 = document.querySelector(".btn__player--0--skill2");
+  const btnPlayer0Skill3 = document.querySelector(".btn__player--0--skill3");
+  const btnPlayer0Heal = document.querySelector(".btn__player--0--healing");
 
-  const btnPlayer1Atk = document.querySelector(".btn--player--1--attack");
-  const btnPlayer1Skill1 = document.querySelector(".btn--player--1--skill--1");
-  const btnPlayer1Skill2 = document.querySelector(".btn--player--1--skill--2");
-  const btnPlayer1Skill3 = document.querySelector(".btn--player--1--skill--3");
-  const btnPlayer1Heal = document.querySelector(".btn--player--1--healing");
+  const btnPlayer1Atk = document.querySelector(".btn__player--1--attack");
+  const btnPlayer1Skill1 = document.querySelector(".btn__player--1--skill1");
+  const btnPlayer1Skill2 = document.querySelector(".btn__player--1--skill2");
+  const btnPlayer1Skill3 = document.querySelector(".btn__player--1--skill3");
+  const btnPlayer1Heal = document.querySelector(".btn__player--1--healing");
 
-  const btnNewGame = document.querySelector(".btn--new--game");
-  const btnExitGame = document.querySelector(".btn--exit");
+  const btnNewGame = document.querySelector(".btn__new--game");
+  const btnExitGame = document.querySelector(".btn__exit");
   //Hit Points
-  const currentHpPlayer0 = document.getElementById("current--0");
-  const currentHpPlayer1 = document.getElementById("current--1");
+  const currentHpPlayer0 = document.getElementById("current__0");
+  const currentHpPlayer1 = document.getElementById("current__1");
+
+  //HP bar
+  const hpPlayer0 = document.getElementById("hp__0");
+  const hpPlayer1 = document.getElementById("hp__1");
 
   ///////////////////////////////////////////////////////////////////////////
 
@@ -654,7 +679,14 @@ const gamePlay = function () {
   });
 
   currentHpPlayer0.textContent = `${players[0].hero.hp} / ${players[0].hero.startedHp}`;
+  hpPlayer0.style.width = `${Math.round(
+    (players[0].hero.hp / players[0].hero.startedHp) * 100
+  )}%`;
+
   currentHpPlayer1.textContent = `${players[1].hero.hp} / ${players[1].hero.startedHp}`;
+  hpPlayer1.style.width = `${Math.round(
+    (players[1].hero.hp / players[1].hero.startedHp) * 100
+  )}%`;
 };
 // for (let i = 0; i < 3; i++) {
 //   gamePlay();

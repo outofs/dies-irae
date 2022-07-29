@@ -1,3 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600;700&display=swap");
+
+* {
+  font-family: "Cormorant SC", serif;
+}
+
+html {
+  background-color: black;
+}
+
 body {
   margin: 0;
 }
@@ -5,107 +15,255 @@ body {
   visibility: hidden;
   opacity: 0%;
 }
+
+.btn {
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 1rem 2.5rem;
+  border-radius: 20em;
+  transition: all 0.3s;
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(218, 23, 16);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* ---------------------------------------Hero selection--------------------------------------- */
 /*SLIDER*/
 .characters {
   display: flex;
   min-height: 100vh;
   width: 100%;
   background-color: black;
-  /* background-image: url("img/MenuBg.png"); */
+  background-image: url("img/MenuBg.png");
   position: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 90%;
   align-items: center;
 }
-.btn--fight {
+
+.choose__your--hero {
+  position: absolute;
+  left: 10%;
+  top: 2%;
+  color: rgb(170, 170, 170);
+  font-size: 2rem;
+  text-align: center;
+  z-index: 1000;
+}
+
+.player__choise {
+  justify-items: center;
+  max-width: 100vh;
+  flex: 50%;
+  z-index: 200;
+}
+
+.player__slider {
+  height: 650px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.player__name {
+  color: red;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+.slide {
+  position: absolute;
+  width: 100%;
+  top: 5.5rem;
+  transition: transform 1s;
+  text-align: center;
+}
+
+.hero__name--slide {
+  color: rgb(218, 0, 0);
+  padding-bottom: 5%;
+}
+.slide > img {
+  width: 500px;
+  object-fit: cover;
+  border-radius: 5%;
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(255, 0, 0);
+}
+
+.btn__fight {
   position: relative;
   display: flex;
   margin: auto;
   background-color: rgb(0, 0, 0);
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 500;
   color: rgb(138, 138, 138);
-  padding: 1rem 2.5rem;
-  border-radius: 20em;
-  cursor: pointer;
-  transition: all 0.3s;
-  border: solid;
-  border-width: 1px;
-  border-color: rgb(218, 23, 16);
   opacity: 100%;
+}
+
+.btn__fight:hover {
+  background-color: rgb(218, 23, 16);
+}
+
+.slider__btns--bar {
+  display: flex;
+  justify-content: center;
+}
+
+.slider__btn {
+  font-size: 1.5rem;
+  display: block;
+  margin-right: 1rem;
+  padding: 1rem 2rem;
+  font-weight: 500;
+  opacity: 50%;
+}
+
+:disabled {
+  opacity: 40%;
+}
+
+.slider__btn:hover {
+  background-color: rgb(218, 23, 16);
 }
 
 .disabled {
   border-color: rgb(122, 122, 122);
-  opacity: 50%;
+  opacity: 40%;
 }
 
-.player--choise {
-  border: solid;
-  border-color: red;
-  max-width: 100vh;
-  flex: 50%;
-}
-.player--slider {
-  max-width: 100rem;
-  height: 50rem;
-  background-color: rgb(148, 148, 148);
-  margin: 0 auto;
-  border: solid;
-  border-color: yellow;
-  overflow: hidden;
-  position: relative;
-}
-.slide {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 50rem;
-  align-items: center;
-  justify-content: center;
+/* ---------------------------------------Main Game--------------------------------------- */
+
+.main__game {
   display: flex;
-  transition: transform 1s;
-}
-.slide > img {
-  width: 90%;
-  height: 90%;
-  object-fit: cover;
-}
-.main--game {
-  display: flex;
-  position: relative;
+  /* position: relative; */
   align-items: center;
-  background-color: rgb(137, 196, 176);
-  width: 95%;
+  background-color: rgb(0, 0, 0);
 }
+
 .player {
   display: flex;
   flex: 50%;
+  width: 50vh;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(112, 218, 218);
-  border-style: solid;
+  /* border-style: solid;
+  border-top: black;
+  border-bottom: black;
   border-width: 1px;
-  border-color: brown;
+  border-color: brown; */
+
   width: 90%;
   height: 80%;
   padding: 1%;
-}
-.btn {
-}
-.player--hero {
-  width: 50vh;
-  display: flex;
-}
-.player--active {
-  background-color: aliceblue;
+  color: rgb(131, 29, 26);
 }
 
-.damage--message {
+.player > .name__img > .player__hero {
+  opacity: 50%;
+}
+
+.player > .game__btns--bar {
+  visibility: hidden;
+}
+
+.player > .current > .hp__bar {
+}
+.player__active > .name__img > .player__hero {
+  opacity: 100%;
+  width: 570px;
+}
+
+.player__active > .game__btns--bar {
+  visibility: visible;
+}
+
+.player__active > .current > .hp__bar {
+  border: none;
+  background-color: rgb(190, 190, 190);
+}
+
+.player__active > .current > .hp__bar > .hp__percentage {
+  background-color: rgb(68, 204, 68);
+}
+
+.player__hero {
+  width: 450px;
+}
+.player__active {
+  background-color: rgb(63, 63, 63);
+  background-image: url("./img/ActiveP.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 95%;
+  color: black;
+}
+
+.hp__bar,
+.hp__percentage {
+  height: 1.5rem;
+  width: 20rem;
+  border-radius: 0.2rem;
+}
+
+.hp__bar {
+  background-color: grey;
+  margin-bottom: 1rem;
+  border: solid;
+  border-width: 2px;
+  border-color: brown;
+}
+
+.hp__percentage {
+  display: block;
+  background-color: rgb(69, 128, 69);
+}
+
+#hp__0 {
+  width: 90%;
+}
+
+.current {
+  text-align: center;
+  /* transition: all 2s; */
+}
+
+.current-label,
+.current-hp {
+  font-size: 1rem;
+}
+
+.hero__name {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.name__img {
+  text-align: center;
+}
+
+.btn__game {
+  opacity: 60%;
+}
+.btn__game:hover {
+  opacity: 90%;
+}
+
+.damage__message {
   position: absolute;
   top: 25%;
   color: rgb(255, 0, 0);
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .overlay {
@@ -120,7 +278,7 @@ body {
   transition: all 0.5s;
 }
 
-.end--game--window {
+.window__end--game {
   position: fixed;
   display: table;
   top: 40%;
@@ -138,7 +296,7 @@ body {
   opacity: 80%;
 }
 
-.btn--end--game {
+.btn__end--game {
   display: table-cell;
   margin: auto;
   margin-top: 5%;

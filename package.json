@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "parcel": "^2.6.2"
+  },
+  "name": "game",
+  "version": "1.0.0",
+  "default": "index.html",
+  "devDependencies": {},
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://outofs@github.com/outofs/dies-irae.git"
+  },
+  "author": "Olexandr Hirych",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/outofs/dies-irae/issues"
+  },
+  "homepage": "https://github.com/outofs/dies-irae#readme",
+  "description": ""
+}
