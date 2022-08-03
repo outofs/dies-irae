@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
     <title>Game</title>
   </head>
   <body>
@@ -15,15 +15,15 @@
         <div class="player__slider player__0--slider">
           <h1 class="player__name">Player 1</h1>
           <div class="slide slide__player--0">
-            <img class="img hero__img" src="img/1.png" alt="Hero 1" />
+            <img class="img hero__img" src="./src/img/1.png" alt="Hero 1" />
             <h1 class="hero__name--slide">Betrayed King</h1>
           </div>
           <div class="slide slide__player--0">
-            <img class="img hero__img" src="img/2.png" alt="Hero 2" />
-            <h1 class="hero__name--slide">Syren</h1>
+            <img class="img hero__img" src="./src/img/2.png" alt="Hero 2" />
+            <h1 class="hero__name--slide">Siren</h1>
           </div>
           <div class="slide slide__player--0">
-            <img class="img hero__img" src="img/3.png" alt="Hero 3" />
+            <img class="img hero__img" src="./src/img/3.png" alt="Hero 3" />
             <h1 class="hero__name--slide">Swamp Demon</h1>
           </div>
         </div>
@@ -46,15 +46,15 @@
         <div class="player__slider player__1--slider">
           <h1 class="player__name">Player 2</h1>
           <div class="slide slide__player--1">
-            <img src="img/1.png" alt="Hero 1" />
+            <img src="./src/img/1.png" alt="Hero 1" />
             <h1 class="hero__name--slide">Betrayed King</h1>
           </div>
           <div class="slide slide__player--1">
-            <img src="img/2.png" alt="Hero 2" />
+            <img src="./src/img/2.png" alt="Hero 2" />
             <h1 class="hero__name--slide">Syren</h1>
           </div>
           <div class="slide slide__player--1">
-            <img src="img/3.png" alt="Hero 3" />
+            <img src="./src/img/3.png" alt="Hero 3" />
             <h1 class="hero__name--slide">Swamp Demon</h1>
           </div>
         </div>
@@ -138,12 +138,11 @@
     </main>
 
     <div class="window__end--game hidden">
-      <h1 class="player__winner">Player 1 is Win!</h1>
-      <button class="btn btn__end--game btn__new--game">New Game</button>
-      <button class="btn btn__end--game btn__exit">Exit</button>
+      <!-- <h1 class="player__winner">Player 1 is Win</h1> -->
+      <a class="btn btn__end--game btn__exit" href="./index.html"> Exit</a>
     </div>
     <div class="overlay hidden"></div>
 
-    <script src="script.js"></script>
+    <script type="module" defer src="/src/js/script.js"></script>
   </body>
 </html>

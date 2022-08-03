@@ -4,30 +4,52 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="menu_style.css" />
-    <title>Dies Irae</title>
+    <link rel="stylesheet" href="src/css/menu_style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <title>Dies Iræ</title>
   </head>
   <body>
     <div class="game__menu">
-      <div class="nav__menu">
-        <div class="logo">
-          <img src="img/logo.png" alt="" />
+      <div class="nav__menu hidden">
+        <div class="main__logo">
+          <div class="game__logo">
+            <img class="logo" src="./src/img/logo.png" alt="" />
+            <h1 class="game__title">Dies Iræ</h1>
+            <h1 class="game__version">Demo</h1>
+          </div>
         </div>
+
         <div class="start__game">
           <a href="#" class="btn btn__start--game">Start Game</a>
         </div>
       </div>
 
       <div class="modal__menu hidden">
-        <a class="btn btn__menu btn__multiplayer" href="./game.html">
-          Multiplayer</a
-        >
-        <a class="btn btn__menu btn__singleplayer" href="#"> Single player</a>
-        <a class="btn btn__menu btn__close--menu" href="#"> Exit</a>
+        <div class="btns__menu">
+          <a class="btn btn__menu btn__multiplayer" href="./game.html">
+            Multiplayer</a
+          >
+          <a class="btn btn__menu btn__singleplayer" href="#"> Single player</a>
+          <a class="btn btn__menu btn__close--menu" href="#"> Exit</a>
+        </div>
       </div>
       <div class="overlay hidden"></div>
+      <!-- <div class="bg__music">
+        <audio
+          src="./src/audio/Dies-Irae-feat-Vila.mp3"
+          autoplay="true"
+        ></audio>
+
+        <button href="#" id="sound" class="btn__sound">
+          <i class="uil uil-volume sound__icon sound__on"></i>
+          <i class="uil uil-volume-mute sound__icon sound__off"></i>
+        </button>
+      </div> -->
     </div>
 
-    <script src="menu_script.js"></script>
+    <script src="/src/js/menu_script.js"></script>
   </body>
 </html>
