@@ -67,3 +67,5 @@ export const SD_TURNS_SKILL1 = 0;
 export const SD_TURNS_SKILL2 = 0;
 export const SD_TURNS_SKILL3 = 0;
 export const SD_SKILL1_DAMAGE_PROGRESSION = 0;
+
+export const SHOW__DAMAGE__TIME = 700;

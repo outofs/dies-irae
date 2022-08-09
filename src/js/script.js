@@ -14,6 +14,8 @@ let player1Hero;
 let player0Ready = false;
 let player1Ready = false;
 
+let damageMessage = "";
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////HEROES///////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -582,9 +584,13 @@ const calculatingAttackDamage = function (multiplier) {
 
 const attackAction = function (funcDamage) {
   const dodgeChance = Math.floor(Math.random() * 100);
+  let damageMessage = "";
 
   if (players[passivePlayer].hero.agility >= dodgeChance) {
     players[activePlayer].hero.damageMovements.push(0);
+
+    damageMessage = `<div class="damage__message dodge">Dodge!</div>`;
+    showDamageMessage(passivePlayer, damageMessage);
   } else {
     funcDamage;
     players[activePlayer].hero.damageMovements.push(funcDamage);
@@ -598,6 +604,9 @@ const attackAction = function (funcDamage) {
       (players[passivePlayer].hero.hp / players[passivePlayer].hero.startedHp) *
         100
     )}%`;
+
+    damageMessage = `<div class="damage__message damage">-${funcDamage}</div>`;
+    showDamageMessage(passivePlayer, damageMessage);
   }
 };
 
@@ -605,6 +614,7 @@ const attackFunction = function () {
   if (playing) {
     attackAction(calculatingAttackDamage(1));
 
+    // setTimeout(switchPlayer, 500);
     switchPlayer();
   }
 };
@@ -621,6 +631,9 @@ const healingFunction = function () {
         100
     )}%`;
 
+    damageMessage = `<div class="damage__message healing">+${players[activePlayer].hero.healing}</div>`;
+    showDamageMessage(activePlayer, damageMessage);
+
     players[activePlayer].hero.healingTurns--;
     if (players[activePlayer].hero.healingTurns < 1) {
       document.querySelector(
@@ -628,6 +641,19 @@ const healingFunction = function () {
       ).disabled = true;
     }
   }
+};
+
+const showDamageMessage = function (player, message) {
+  document
+    .querySelector(`.player__${player}`)
+    .insertAdjacentHTML("beforeend", message);
+  removeDamageMessage();
+};
+
+const removeDamageMessage = function () {
+  setTimeout(() => {
+    document.querySelectorAll(".damage__message").forEach((e) => e.remove());
+  }, Stats.SHOW__DAMAGE__TIME);
 };
 
 const gamePlay = function () {

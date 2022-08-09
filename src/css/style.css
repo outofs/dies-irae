@@ -182,6 +182,18 @@ body {
   visibility: visible;
 }
 
+.player__active > .name__img > .hero__name {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.player__active > .current > .current-hp {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.player__active > .current > .current-label {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
 .player__active > .current > .hp__bar {
   border: none;
   background-color: rgb(190, 190, 190);
@@ -253,12 +265,6 @@ body {
   opacity: 90%;
 }
 
-.damage__message {
-  position: absolute;
-  top: 25%;
-  color: rgb(255, 0, 0);
-}
-
 .name {
   font-size: 1.5rem;
   font-weight: 700;
@@ -324,4 +330,26 @@ body {
 
 .btn__end--game:hover {
   background-color: rgb(218, 23, 16);
+}
+
+.damage__message {
+  position: absolute;
+  display: flex;
+  color: azure;
+  align-items: center;
+  padding: 10px;
+  top: 50%;
+  font-size: 2.5rem;
+}
+
+.damage {
+  color: rgb(218, 23, 16);
+}
+
+.dodge {
+  color: rgb(221, 221, 221);
+}
+
+.healing {
+  color: rgb(68, 204, 68);
 }
