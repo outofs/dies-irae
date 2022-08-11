@@ -2,6 +2,9 @@
 
 * {
   font-family: "Cormorant SC", serif;
+  margin: 0;
+  /* padding: 0; */
+  box-sizing: border-box;
 }
 
 html {
@@ -9,7 +12,8 @@ html {
 }
 
 body {
-  margin: 0;
+  height: 100vh;
+  overflow: hidden;
 }
 .hidden {
   visibility: hidden;
@@ -141,6 +145,7 @@ body {
 /* ---------------------------------------Main Game--------------------------------------- */
 
 .main__game {
+  height: 100vh;
   display: flex;
   /* position: relative; */
   align-items: center;
@@ -152,13 +157,14 @@ body {
   flex: 50%;
   width: 50vh;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   background-image: url("../img/PassiveP.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 80%;
   width: 90%;
-  height: 80%;
+  height: 100vh;
   padding: 1%;
   color: rgb(131, 29, 26);
 }
@@ -207,7 +213,6 @@ body {
   width: 450px;
 }
 .player__active {
-  background-color: rgb(63, 63, 63);
   background-image: url("../img/ActiveP.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -226,8 +231,8 @@ body {
   background-color: grey;
   margin-bottom: 1rem;
   border: solid;
-  border-width: 2px;
-  border-color: brown;
+  /* border-width: 2px;
+  border-color: brown; */
 }
 
 .hp__percentage {
