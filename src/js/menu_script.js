@@ -31,6 +31,12 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+message.addEventListener("click", function (e) {
+  e.preventDefault();
+  message.remove();
+  startGameNav.classList.remove("hidden");
+});
+
 btnShowMenu.addEventListener("click", function (e) {
   e.preventDefault();
   showMenu();
